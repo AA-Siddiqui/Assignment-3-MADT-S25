@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task2/widgets/transparent_app_bar_widget.dart';
 
 class ViewPage extends StatelessWidget {
   const ViewPage({super.key});
@@ -18,39 +19,9 @@ class ViewPage extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  IconButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey.withAlpha(128),
-                    ),
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.arrow_left,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    "View",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  IconButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey.withAlpha(0),
-                    ),
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.arrow_left,
-                      color: Colors.transparent,
-                    ),
-                  ),
-                ],
+              TransparentAppBarWidget(
+                title: "View",
+                onPressed: () => Navigator.pop(context),
               ),
               Expanded(
                 child: Stack(children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task2/pages/detail_page.dart';
 import 'package:task2/pages/home_page.dart';
 import 'package:task2/pages/profile_page.dart';
 
@@ -123,7 +124,12 @@ class _DashboardPageState extends State<DashboardPage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF0D6EFD),
               ),
-              onPressed: () {},
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailPage(),
+                ),
+              ),
               icon: Padding(
                 padding: const EdgeInsets.all(4),
                 child: Icon(
