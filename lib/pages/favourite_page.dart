@@ -3,8 +3,8 @@ import 'package:task2/widgets/custom_grid_widget.dart';
 import 'package:task2/widgets/info_card_widget.dart';
 import 'package:task2/widgets/transparent_app_bar_widget.dart';
 
-class PopularPage extends StatelessWidget {
-  const PopularPage({super.key});
+class FavouritePage extends StatelessWidget {
+  const FavouritePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class PopularPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TransparentAppBarWidget(
-            title: "Popular Places",
+            title: "Favourite Places",
             textColor: Colors.black,
             onPressed: () => Navigator.pop(context),
           ),
@@ -38,30 +38,32 @@ class PopularPage extends StatelessWidget {
                         InfoCardWidget(
                           title: "Niladri Reservoir",
                           location: "Tekergat, Sunamgnj",
-                          star: "4.7",
-                          price: "459",
-                          image: "assets/images/popular-0.png",
+                          image: "assets/images/fav-place-0.png",
                         ),
                         InfoCardWidget(
                           title: "Casa Las Tirtugas",
                           location: "Av Damero, Mexico",
-                          star: "4.8",
-                          price: "894",
-                          image: "assets/images/popular-1.png",
+                          image: "assets/images/fav-place-1.png",
                         ),
                         InfoCardWidget(
                           title: "Aonang Villa Resort",
                           location: "Bastola, Islampur",
-                          star: "4.3",
-                          price: "761",
-                          image: "assets/images/popular-2.png",
+                          image: "assets/images/fav-place-2.png",
                         ),
                         InfoCardWidget(
                           title: "Rangauti Resort",
                           location: "Sylhet, Airport Road",
-                          star: "4.5",
-                          price: "857",
-                          image: "assets/images/popular-3.png",
+                          image: "assets/images/fav-place-3.png",
+                        ),
+                        InfoCardWidget(
+                          title: "Kachura Resort",
+                          location: "Vellima, Island",
+                          image: "assets/images/fav-place-4.png",
+                        ),
+                        InfoCardWidget(
+                          title: "Shakardu Resort",
+                          location: "Shakartu, Pakistan",
+                          image: "assets/images/fav-place-5.png",
                         ),
                       ],
                     ),

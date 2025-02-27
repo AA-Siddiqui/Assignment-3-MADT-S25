@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task2/pages/detail_page.dart';
+import 'package:task2/pages/favourite_page.dart';
 import 'package:task2/pages/home_page.dart';
 import 'package:task2/pages/profile_page.dart';
 import 'package:task2/pages/schedule_page.dart';
@@ -126,7 +127,19 @@ class _DashboardPageState extends State<DashboardPage> {
         children: [
           HomePage(),
           SchedulePage(),
-          Container(color: Colors.green),
+          Column(
+            children: [
+              TextButton(
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FavouritePage(),
+                  ),
+                ),
+                child: Text("Favourite Places"),
+              )
+            ],
+          ),
           ProfileContent(onPressed: () {}),
         ],
       ),
