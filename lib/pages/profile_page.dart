@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task2/widgets/transparent_app_bar_widget.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -6,18 +7,30 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-          "Profile",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        actions: [
-          IconButton(
+      body: ProfileContent(),
+    );
+  }
+}
+
+class ProfileContent extends StatelessWidget {
+  const ProfileContent({
+    super.key,
+    this.onPressed,
+  });
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        TransparentAppBarWidget(
+          title: "Profile",
+          textColor: Colors.black,
+          onPressed: onPressed ?? () => Navigator.pop(context),
+          trailing: IconButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(255, 226, 226, 235),
             ),
@@ -27,83 +40,69 @@ class ProfilePage extends StatelessWidget {
               color: Color(0xFF0D6EFD),
             ),
           ),
-        ],
-        leading: IconButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Color.fromARGB(255, 226, 226, 235),
-          ),
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_left_outlined),
         ),
-      ),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Column(
-            children: [
-              Container(
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                child: Image.asset("assets/images/avatar-hd.png"),
+        Column(
+          children: [
+            Container(
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
               ),
-              Text(
-                "Leonardo",
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 22,
-                ),
-              ),
-              Text(
-                "leonardo@gmail.com",
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              HighlightTile(title: "Rewards Points", value: "360"),
-              HighlightTile(title: "Travel Trips", value: "238"),
-              HighlightTile(title: "Bucket List", value: "473"),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
-            child: Column(
-              children: [
-                MenuActionTile(
-                  text: "Profile",
-                  leading: Icon(Icons.person_outline),
-                ),
-                MenuActionTile(
-                  text: "Bookmarked",
-                  leading: Icon(Icons.bookmark_outline),
-                ),
-                MenuActionTile(
-                  text: "Previous Trips",
-                  leading: Icon(Icons.airplane_ticket_outlined),
-                ),
-                MenuActionTile(
-                  text: "Settings",
-                  leading: Icon(Icons.settings_outlined),
-                ),
-                MenuActionTile(
-                  text: "Version",
-                  leading: Icon(Icons.info_outline),
-                ),
-              ],
+              child: Image.asset("assets/images/avatar-hd.png"),
             ),
+            Text(
+              "Leonardo",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 22,
+              ),
+            ),
+            Text(
+              "leonardo@gmail.com",
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                color: Colors.grey,
+              ),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            HighlightTile(title: "Rewards Points", value: "360"),
+            HighlightTile(title: "Travel Trips", value: "238"),
+            HighlightTile(title: "Bucket List", value: "473"),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+          child: Column(
+            children: [
+              MenuActionTile(
+                text: "Profile",
+                leading: Icon(Icons.person_outline),
+              ),
+              MenuActionTile(
+                text: "Bookmarked",
+                leading: Icon(Icons.bookmark_outline),
+              ),
+              MenuActionTile(
+                text: "Previous Trips",
+                leading: Icon(Icons.airplane_ticket_outlined),
+              ),
+              MenuActionTile(
+                text: "Settings",
+                leading: Icon(Icons.settings_outlined),
+              ),
+              MenuActionTile(
+                text: "Version",
+                leading: Icon(Icons.info_outline),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

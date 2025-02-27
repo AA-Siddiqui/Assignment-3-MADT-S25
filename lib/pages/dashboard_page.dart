@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task2/pages/detail_page.dart';
 import 'package:task2/pages/home_page.dart';
 import 'package:task2/pages/profile_page.dart';
+import 'package:task2/pages/schedule_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -77,9 +78,9 @@ class _DashboardPageState extends State<DashboardPage> {
             SizedBox(width: 20),
           ],
         ),
+        null,
         AppBar(),
-        AppBar(),
-        AppBar(),
+        null,
       ][pageNo],
       bottomNavigationBar: BottomAppBar(
         child: Row(
@@ -179,9 +180,9 @@ class _DashboardPageState extends State<DashboardPage> {
         controller: pageController,
         children: [
           HomePage(),
-          Container(color: Colors.yellow),
+          SchedulePage(),
           Container(color: Colors.green),
-          Container(color: Colors.blue),
+          ProfileContent(onPressed: () {}),
         ],
       ),
     );
