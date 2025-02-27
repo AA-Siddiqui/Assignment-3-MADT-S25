@@ -26,62 +26,6 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: [
-        AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leadingWidth: MediaQuery.sizeOf(context).width * 0.4,
-          leading: GestureDetector(
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ProfilePage(),
-              ),
-            ),
-            child: FittedBox(
-              child: Container(
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  // color: Color.fromARGB(255, 226, 226, 235),
-                  color: const Color.fromARGB(255, 243, 243, 243),
-                  borderRadius: BorderRadius.circular(32),
-                ),
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: Color(0xFFFFDFE6),
-                      child: Container(
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: Image.asset("assets/images/avatar.png"),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("Leonardo"),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.notifications_none_outlined),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 226, 226, 235),
-              ),
-            ),
-            SizedBox(width: 20),
-          ],
-        ),
-        null,
-        AppBar(),
-        null,
-      ][pageNo],
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -177,6 +121,7 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
       ),
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         controller: pageController,
         children: [
           HomePage(),

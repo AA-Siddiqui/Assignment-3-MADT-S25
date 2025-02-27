@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:task2/pages/popular_page.dart';
+import 'package:task2/pages/profile_page.dart';
 import 'package:task2/pages/view_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -6,97 +8,162 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              Column(
-                children: [
-                  Text.rich(
-                    TextSpan(
-                      text: "Explore the\n",
-                      children: [
-                        TextSpan(
-                          text: "Beautiful ",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
+    return Column(
+      children: [
+        SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width * 0.4,
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfilePage(),
+                      ),
+                    ),
+                    child: FittedBox(
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          // color: Color.fromARGB(255, 226, 226, 235),
+                          color: const Color.fromARGB(255, 243, 243, 243),
+                          borderRadius: BorderRadius.circular(32),
+                        ),
+                        child: Row(
                           children: [
-                            TextSpan(
-                              text: "world!",
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 255, 112, 41),
+                            CircleAvatar(
+                              backgroundColor: Color(0xFFFFDFE6),
+                              child: Container(
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                child: Image.asset("assets/images/avatar.png"),
                               ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("Leonardo"),
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                    style: TextStyle(
-                      fontSize: 36,
+                      ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.notifications_none_outlined),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 226, 226, 235),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
+                children: [
+                  Column(
+                    children: [
+                      Text.rich(
+                        TextSpan(
+                          text: "Explore the\n",
+                          children: [
+                            TextSpan(
+                              text: "Beautiful ",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: "world!",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 255, 112, 41),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        style: TextStyle(
+                          fontSize: 36,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                    ],
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: Image.asset("assets/images/arc.png"),
+                  ),
                 ],
               ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: Image.asset("assets/images/arc.png"),
+              Padding(
+                // padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Best Destination",
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PopularPage(),
+                        ),
+                      ),
+                      child: Text(
+                        "View All",
+                        style: TextStyle(
+                          color: Color(0xFF0D6EFD),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.45,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    DestinationCardWidget(
+                      title: "Niladri Reservoir",
+                      location: "Tekergat, Sunamgnj",
+                      stars: "4.7",
+                      image: "assets/images/dashboard-0.png",
+                    ),
+                    DestinationCardWidget(
+                      title: "Darma Reservoir",
+                      location: "Darma, Kuningan",
+                      stars: "4.9",
+                      image: "assets/images/dashboard-1.png",
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
-          Padding(
-            // padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Best Destination",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "View All",
-                    style: TextStyle(
-                      color: Color(0xFF0D6EFD),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.sizeOf(context).height * 0.45,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                DestinationCardWidget(
-                  title: "Niladri Reservoir",
-                  location: "Tekergat, Sunamgnj",
-                  stars: "4.7",
-                  image: "assets/images/dashboard-0.png",
-                ),
-                DestinationCardWidget(
-                  title: "Darma Reservoir",
-                  location: "Darma, Kuningan",
-                  stars: "4.9",
-                  image: "assets/images/dashboard-1.png",
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

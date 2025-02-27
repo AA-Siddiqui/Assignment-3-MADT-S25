@@ -141,24 +141,23 @@ class SchedulePage extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // TODO: Change the images
                         ScheduleCardWidget(
                           title: "Niladri Reservoir",
                           date: "26 January 2022",
                           location: "Tekergat, Sunamgnj",
-                          image: "assets/images/onboarding-0.png",
+                          image: "assets/images/schedule-0.png",
                         ),
                         ScheduleCardWidget(
                           title: "High Rech Park",
                           date: "26 January 2022",
                           location: "Zeero Point, Sylhet",
-                          image: "assets/images/onboarding-1.png",
+                          image: "assets/images/schedule-1.png",
                         ),
                         ScheduleCardWidget(
                           title: "Darma Reservoir",
                           date: "26 January 2022",
                           location: "Darma, Kuningan",
-                          image: "assets/images/onboarding-2.png",
+                          image: "assets/images/schedule-2.png",
                         ),
                       ],
                     ),
