@@ -124,8 +124,8 @@ class OnboardingPageWidget extends StatelessWidget {
                   height: 10,
                   decoration: BoxDecoration(
                     color: (pageNo) == 0
-                        ? Colors.blue
-                        : Colors.blue.withAlpha(128),
+                        ? Color(0xFF0D6EFD)
+                        : Color(0xFF0D6EFD).withAlpha(128),
                     borderRadius: BorderRadius.circular(100),
                   ),
                 ),
@@ -135,8 +135,8 @@ class OnboardingPageWidget extends StatelessWidget {
                   height: 10,
                   decoration: BoxDecoration(
                     color: (pageNo) == 1
-                        ? Colors.blue
-                        : Colors.blue.withAlpha(128),
+                        ? Color(0xFF0D6EFD)
+                        : Color(0xFF0D6EFD).withAlpha(128),
                     borderRadius: BorderRadius.circular(100),
                   ),
                 ),
@@ -146,8 +146,8 @@ class OnboardingPageWidget extends StatelessWidget {
                   height: 10,
                   decoration: BoxDecoration(
                     color: (pageNo) == 2
-                        ? Colors.blue
-                        : Colors.blue.withAlpha(128),
+                        ? Color(0xFF0D6EFD)
+                        : Color(0xFF0D6EFD).withAlpha(128),
                     borderRadius: BorderRadius.circular(100),
                   ),
                 ),
@@ -177,7 +177,7 @@ class OnboardingPageWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 fixedSize: Size(double.maxFinite, 20),
-                backgroundColor: Colors.blue,
+                backgroundColor: Color(0xFF0D6EFD),
                 foregroundColor: Colors.white,
               ),
               child: Text(buttonText),
