@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task2/pages/login_page.dart';
+import 'package:task2/widgets/get_size.dart';
 
 class OnboardingPageWidget extends StatelessWidget {
   const OnboardingPageWidget({
@@ -73,31 +74,24 @@ class OnboardingPageWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text.rich(
-                  textAlign: TextAlign.center,
-                  TextSpan(
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    text: titleText,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    direction: Axis.horizontal,
                     children: [
-                      TextSpan(
-                        text: titleTextHighlight,
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 255, 112, 41),
-                        ),
-                      ),
+                      ...titleText.trim().replaceAll("\n", " ").split(" ").map(
+                            (item) => Text(
+                              "$item ",
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                      TitleHightlightWidget(
+                          titleTextHighlight: titleTextHighlight),
                     ],
-                  ),
-                ),
-                Transform.translate(
-                  offset: Offset(offsetYArc, 0),
-                  child: Transform.scale(
-                    scaleX: scaleXArc,
-                    child: Image.asset(
-                      "assets/images/arc.png",
-                    ),
                   ),
                 ),
               ],
@@ -185,6 +179,50 @@ class OnboardingPageWidget extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class TitleHightlightWidget extends StatefulWidget {
+  const TitleHightlightWidget({
+    super.key,
+    required this.titleTextHighlight,
+  });
+
+  final String titleTextHighlight;
+
+  @override
+  State<TitleHightlightWidget> createState() => _TitleHightlightWidgetState();
+}
+
+class _TitleHightlightWidgetState extends State<TitleHightlightWidget> {
+  Size size = Size.zero;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        GetSize(
+          onChildSize: (size) => setState(() => this.size = size),
+          child: Text(
+            widget.titleTextHighlight,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 255, 112, 41),
+            ),
+          ),
+        ),
+        SizedBox(
+          width: size.width,
+          child: Image.asset(
+            "assets/images/arc.png",
+          ),
+        ),
+        // Transform.scale(
+        //   scaleX: scaleXArc,
+        //   child:
+        // )
+      ],
     );
   }
 }
