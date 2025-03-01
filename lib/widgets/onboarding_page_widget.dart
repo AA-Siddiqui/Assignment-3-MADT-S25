@@ -11,12 +11,8 @@ class OnboardingPageWidget extends StatelessWidget {
     required this.descriptionText,
     required this.buttonText,
     required this.pageController,
-    required this.offsetYArc,
-    required this.scaleXArc,
     required this.pageNo,
-    required this.carosolHead1,
-    required this.carosolHead2,
-    required this.carosolHead3,
+    required this.carosolHeadSize,
   });
   final String imagePath;
   final String titleText;
@@ -25,11 +21,7 @@ class OnboardingPageWidget extends StatelessWidget {
   final String buttonText;
   final PageController pageController;
   final int pageNo;
-  final double offsetYArc;
-  final double scaleXArc;
-  final double carosolHead1;
-  final double carosolHead2;
-  final double carosolHead3;
+  final List<double> carosolHeadSize;
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +82,8 @@ class OnboardingPageWidget extends StatelessWidget {
                             ),
                           ),
                       TitleHightlightWidget(
-                          titleTextHighlight: titleTextHighlight),
+                        titleTextHighlight: titleTextHighlight,
+                      ),
                     ],
                   ),
                 ),
@@ -111,41 +104,21 @@ class OnboardingPageWidget extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  margin: EdgeInsets.all(4),
-                  width: MediaQuery.sizeOf(context).width * carosolHead1,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    color: (pageNo) == 0
-                        ? Color(0xFF0D6EFD)
-                        : Color(0xFF0D6EFD).withAlpha(128),
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(4),
-                  width: MediaQuery.sizeOf(context).width * carosolHead2,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    color: (pageNo) == 1
-                        ? Color(0xFF0D6EFD)
-                        : Color(0xFF0D6EFD).withAlpha(128),
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(4),
-                  width: MediaQuery.sizeOf(context).width * carosolHead3,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    color: (pageNo) == 2
-                        ? Color(0xFF0D6EFD)
-                        : Color(0xFF0D6EFD).withAlpha(128),
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                ),
-              ],
+              children: carosolHeadSize.indexed
+                  .map(
+                    (item) => Container(
+                      margin: EdgeInsets.all(4),
+                      width: MediaQuery.sizeOf(context).width * item.$2,
+                      height: 10,
+                      decoration: BoxDecoration(
+                        color: pageNo == item.$1
+                            ? Color(0xFF0D6EFD)
+                            : Color(0xFF0D6EFD).withAlpha(128),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                    ),
+                  )
+                  .toList(),
             ),
           ),
           Padding(
