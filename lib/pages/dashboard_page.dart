@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:task2/pages/detail_page.dart';
-import 'package:task2/pages/favourite_page.dart';
+import 'package:task2/pages/favourite_places_page.dart';
 import 'package:task2/pages/home_page.dart';
+import 'package:task2/pages/popular_package_page.dart';
 import 'package:task2/pages/profile_page.dart';
 import 'package:task2/pages/schedule_page.dart';
+import 'package:task2/widgets/menu_action_tile.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -70,12 +71,7 @@ class _DashboardPageState extends State<DashboardPage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFF0D6EFD),
               ),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailPage(),
-                ),
-              ),
+              onPressed: () {},
               icon: Padding(
                 padding: const EdgeInsets.all(4),
                 child: Icon(
@@ -127,18 +123,34 @@ class _DashboardPageState extends State<DashboardPage> {
         children: [
           HomePage(),
           SchedulePage(),
-          Column(
-            children: [
-              TextButton(
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => FavouritePage(),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  MenuActionTile(
+                    leading: Icon(Icons.abc),
+                    text: "Favourite Places",
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FavouritePlacesPage(),
+                      ),
+                    ),
                   ),
-                ),
-                child: Text("Favourite Places"),
-              )
-            ],
+                  MenuActionTile(
+                    leading: Icon(Icons.abc),
+                    text: "Popular Package",
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PopularPackagePage(),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
           ProfileContent(onPressed: () {}),
         ],

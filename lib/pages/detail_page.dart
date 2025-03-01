@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task2/pages/view_page.dart';
 import 'package:task2/widgets/transparent_app_bar_widget.dart';
 
 class DetailPage extends StatefulWidget {
@@ -90,7 +91,11 @@ class _DetailPageState extends State<DetailPage>
                               ),
                             ],
                           ),
-                          CircleAvatar(),
+                          CircleAvatar(
+                            backgroundImage: AssetImage(
+                              "assets/images/friend-2.png",
+                            ),
+                          ),
                         ],
                       ),
                       Row(
@@ -159,33 +164,21 @@ class _DetailPageState extends State<DetailPage>
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            ...List.generate(
-                              4,
-                              (index) => Container(
-                                clipBehavior: Clip.antiAlias,
-                                width: 32,
-                                height: 32,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                child: Image.asset(
-                                  "assets/images/details-$index.png",
-                                  fit: BoxFit.fitHeight,
-                                ),
-                              ),
-                            ),
-                            Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Container(
-                                  foregroundDecoration: BoxDecoration(
-                                    color: Colors.grey.withAlpha(128),
-                                  ),
+                      GestureDetector(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ViewPage(),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              ...List.generate(
+                                4,
+                                (index) => Container(
                                   clipBehavior: Clip.antiAlias,
                                   width: 32,
                                   height: 32,
@@ -193,17 +186,37 @@ class _DetailPageState extends State<DetailPage>
                                     borderRadius: BorderRadius.circular(4),
                                   ),
                                   child: Image.asset(
-                                    "assets/images/details-4.png",
+                                    "assets/images/details-$index.png",
                                     fit: BoxFit.fitHeight,
                                   ),
                                 ),
-                                Text(
-                                  "+16",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ],
+                              ),
+                              Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    foregroundDecoration: BoxDecoration(
+                                      color: Colors.grey.withAlpha(128),
+                                    ),
+                                    clipBehavior: Clip.antiAlias,
+                                    width: 32,
+                                    height: 32,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: Image.asset(
+                                      "assets/images/details-4.png",
+                                      fit: BoxFit.fitHeight,
+                                    ),
+                                  ),
+                                  Text(
+                                    "+16",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Align(

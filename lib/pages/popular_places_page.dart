@@ -3,8 +3,8 @@ import 'package:task2/widgets/custom_grid_widget.dart';
 import 'package:task2/widgets/info_card_widget.dart';
 import 'package:task2/widgets/transparent_app_bar_widget.dart';
 
-class PopularPage extends StatelessWidget {
-  const PopularPage({super.key});
+class PopularPlacesPage extends StatelessWidget {
+  const PopularPlacesPage({super.key});
 
   @override
   Widget build(BuildContext context) {

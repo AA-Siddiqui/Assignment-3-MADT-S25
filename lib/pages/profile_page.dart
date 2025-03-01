@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task2/widgets/menu_action_tile.dart';
 import 'package:task2/widgets/transparent_app_bar_widget.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -144,31 +145,6 @@ class HighlightTile extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class MenuActionTile extends StatelessWidget {
-  const MenuActionTile({
-    super.key,
-    required this.leading,
-    required this.text,
-  });
-  final Icon leading;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Container(
-        color: const Color.fromARGB(255, 243, 243, 243),
-        child: ListTile(
-          leading: leading,
-          trailing: Icon(Icons.arrow_right_outlined),
-          title: Text(text, style: TextStyle(fontWeight: FontWeight.bold)),
         ),
       ),
     );

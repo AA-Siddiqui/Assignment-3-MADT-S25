@@ -48,14 +48,16 @@ class OnboardingPageWidget extends StatelessWidget {
               Positioned(
                 top: 16,
                 right: 16,
-                child: TextButton(
-                  onPressed: () => Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginPage(),
+                child: SafeArea(
+                  child: TextButton(
+                    onPressed: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(),
+                      ),
                     ),
+                    child: Text("Skip"),
                   ),
-                  child: Text("Skip"),
                 ),
               ),
             ],
@@ -83,6 +85,7 @@ class OnboardingPageWidget extends StatelessWidget {
                           ),
                       TitleHightlightWidget(
                         titleTextHighlight: titleTextHighlight,
+                        fontSize: 24,
                       ),
                     ],
                   ),
@@ -160,9 +163,11 @@ class TitleHightlightWidget extends StatefulWidget {
   const TitleHightlightWidget({
     super.key,
     required this.titleTextHighlight,
+    required this.fontSize,
   });
 
   final String titleTextHighlight;
+  final double fontSize;
 
   @override
   State<TitleHightlightWidget> createState() => _TitleHightlightWidgetState();
@@ -179,7 +184,7 @@ class _TitleHightlightWidgetState extends State<TitleHightlightWidget> {
           child: Text(
             widget.titleTextHighlight,
             style: TextStyle(
-              fontSize: 24,
+              fontSize: widget.fontSize,
               fontWeight: FontWeight.bold,
               color: Color.fromARGB(255, 255, 112, 41),
             ),

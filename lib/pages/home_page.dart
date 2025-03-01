@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:task2/pages/popular_page.dart';
+import 'package:task2/pages/detail_page.dart';
+import 'package:task2/pages/popular_places_page.dart';
 import 'package:task2/pages/profile_page.dart';
-import 'package:task2/pages/view_page.dart';
+import 'package:task2/widgets/friend_list_widget.dart';
+import 'package:task2/widgets/onboarding_page_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -71,46 +73,31 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Stack(
-                children: [
-                  Column(
-                    children: [
-                      Text.rich(
-                        TextSpan(
-                          text: "Explore the\n",
-                          children: [
-                            TextSpan(
-                              text: "Beautiful ",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: "world!",
-                                  style: TextStyle(
-                                    color: Color.fromARGB(255, 255, 112, 41),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        style: TextStyle(
-                          fontSize: 36,
-                        ),
+              Padding(
+                padding: const EdgeInsets.only(right: 64),
+                child: Wrap(
+                  alignment: WrapAlignment.start,
+                  direction: Axis.horizontal,
+                  children: [
+                    Text(
+                      "Explore the ",
+                      style: TextStyle(fontSize: 36),
+                    ),
+                    Text(
+                      "Beautiful ",
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
                       ),
-                      SizedBox(height: 10),
-                    ],
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: Image.asset("assets/images/arc.png"),
-                  ),
-                ],
+                    ),
+                    TitleHightlightWidget(
+                      titleTextHighlight: "world!",
+                      fontSize: 36,
+                    ),
+                  ],
+                ),
               ),
               Padding(
-                // padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -127,7 +114,7 @@ class HomePage extends StatelessWidget {
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => PopularPage(),
+                          builder: (context) => PopularPlacesPage(),
                         ),
                       ),
                       child: Text(
@@ -185,7 +172,11 @@ class DestinationCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => ViewPage())),
+        context,
+        MaterialPageRoute(
+          builder: (context) => DetailPage(),
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
@@ -286,54 +277,7 @@ class DestinationCardWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      width: 50,
-                      height: 20,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            width: 20,
-                            height: 20,
-                            right: 30,
-                            child: CircleAvatar(
-                              radius: 10,
-                              backgroundColor: Colors.blue,
-                            ),
-                          ),
-                          Positioned(
-                            width: 20,
-                            height: 20,
-                            right: 20,
-                            child: CircleAvatar(
-                              radius: 10,
-                              backgroundColor: Colors.yellow,
-                            ),
-                          ),
-                          Positioned(
-                            width: 20,
-                            height: 20,
-                            right: 10,
-                            child: CircleAvatar(
-                              radius: 10,
-                              backgroundColor: Colors.green,
-                            ),
-                          ),
-                          Positioned(
-                            width: 20,
-                            height: 20,
-                            right: 0,
-                            child: CircleAvatar(
-                              radius: 10,
-                              backgroundColor: Colors.blue.shade50,
-                              child: Text(
-                                "+50",
-                                style: TextStyle(fontSize: 8),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    FriendListWidget(),
                   ],
                 ),
               ),

@@ -64,10 +64,7 @@ class InfoCardWidget extends StatelessWidget {
                       fixedSize: Size(18, 18),
                     ),
                     onPressed: () {},
-                    icon: Icon(
-                      Icons.thumb_up,
-                      size: 18,
-                    ),
+                    icon: Image.asset("assets/images/heart.png"),
                   ),
                 ),
               ],

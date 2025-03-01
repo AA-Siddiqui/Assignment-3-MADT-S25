@@ -23,7 +23,7 @@ class TransparentAppBarWidget extends StatelessWidget {
         children: [
           IconButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey.withAlpha(128),
+              backgroundColor: Colors.black.withAlpha(32),
             ),
             onPressed: onPressed ?? () {},
             icon: Icon(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task2/widgets/friend_list_widget.dart';
 import 'package:task2/widgets/transparent_app_bar_widget.dart';
 
 class ViewPage extends StatelessWidget {
@@ -102,54 +103,7 @@ class ViewPage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(
-                              width: 50,
-                              height: 20,
-                              child: Stack(
-                                children: [
-                                  Positioned(
-                                    width: 20,
-                                    height: 20,
-                                    right: 30,
-                                    child: CircleAvatar(
-                                      radius: 10,
-                                      backgroundColor: Colors.blue,
-                                    ),
-                                  ),
-                                  Positioned(
-                                    width: 20,
-                                    height: 20,
-                                    right: 20,
-                                    child: CircleAvatar(
-                                      radius: 10,
-                                      backgroundColor: Colors.yellow,
-                                    ),
-                                  ),
-                                  Positioned(
-                                    width: 20,
-                                    height: 20,
-                                    right: 10,
-                                    child: CircleAvatar(
-                                      radius: 10,
-                                      backgroundColor: Colors.green,
-                                    ),
-                                  ),
-                                  Positioned(
-                                    width: 20,
-                                    height: 20,
-                                    right: 0,
-                                    child: CircleAvatar(
-                                      radius: 10,
-                                      backgroundColor: Colors.blue.shade50,
-                                      child: Text(
-                                        "+50",
-                                        style: TextStyle(fontSize: 8),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            FriendListWidget(),
                           ],
                         ),
                       ),

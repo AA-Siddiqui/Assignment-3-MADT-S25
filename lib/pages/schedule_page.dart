@@ -139,7 +139,7 @@ class SchedulePage extends StatelessWidget {
                   Expanded(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         ScheduleCardWidget(
                           title: "Niladri Reservoir",
@@ -190,6 +190,7 @@ class ScheduleCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(8),
+      margin: EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
